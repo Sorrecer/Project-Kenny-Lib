@@ -18,19 +18,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="40dp"
-                android:text="Kenny Lib Lite"
+                android:text="Selamat Datang, user!"
                 android:textColor="@android:color/black"
-                android:textSize="40dp"
-                android:textStyle="bold"/>
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"/>
 
         </LinearLayout>
 
@@ -48,7 +46,7 @@
                 android:layout_marginTop="150dp">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/add_mhs"
+                    android:id="@+id/lihat_buku"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -83,9 +81,8 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/list_mhs"
+                <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/cari_buku"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
