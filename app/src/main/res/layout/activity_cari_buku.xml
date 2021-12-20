@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LihatBukuActivity"
+    tools:context=".CariBukuActivity"
     android:orientation="vertical"
     android:padding="8dp"
     android:background="@drawable/bg">
@@ -30,37 +30,42 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-condensed"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:background="@color/white"
-        android:gravity="center">
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editMobileNo"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
-            android:layout_margin="5dp"
+            android:layout_width="305dp"
+            android:layout_height="30dp"
             android:background="@drawable/searchbox"
-            android:drawableLeft="@drawable/ic_cari_buku"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ketik nama buku... ">
-
+            android:hint="  Ketik nama buku... ">
         </EditText>
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/btn_cari_buku"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/editMobileNo"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_cari_buku"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="30dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
