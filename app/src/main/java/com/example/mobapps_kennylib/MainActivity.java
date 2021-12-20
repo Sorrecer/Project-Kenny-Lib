@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView user;
+    String nim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = findViewById(R.id.tv_user);
         SharedPreferences sharedPref = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
-        String nim = sharedPref.getString("nim", "0");
+        nim = sharedPref.getString("nim", "0");
         user.setText(nim);
     }
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         SharedPreferences sharedPref = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
-        String nim = sharedPref.getString("nim", "0");
+        nim = sharedPref.getString("nim", "0");
         System.out.println(nim);
         user.setText(nim);
     }
@@ -41,7 +42,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CariBukuActivity.class));
                 break;
             case R.id.ganti_session:
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
+                if (nim.equals("0")) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                }
+                else {
+                    SharedPreferences sharedPref = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.remove("nim");
+                    editor.apply();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                }
                 break;
         }
     }
