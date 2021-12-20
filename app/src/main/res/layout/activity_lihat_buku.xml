@@ -9,16 +9,6 @@
     android:padding="8dp"
     android:background="@drawable/bg">
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_back"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
