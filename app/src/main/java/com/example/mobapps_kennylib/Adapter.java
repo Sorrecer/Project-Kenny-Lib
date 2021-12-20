@@ -14,7 +14,7 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter {
 
     List<Buku> fetchDataList;
-    private AdapterView.OnItemClickListener mListener;
+    private OnItemClickListener mListener;
 
     public Adapter(List<Buku> fetchDataList) {
         this.fetchDataList = fetchDataList;
@@ -34,7 +34,7 @@ public class Adapter extends RecyclerView.Adapter {
 
         Buku buku = fetchDataList.get(position);
         viewHolderClass.judul.setText(buku.getJudul());
-        viewHolderClass.pengarang.setText(buku .getPengarang());
+        viewHolderClass.isbn.setText(buku.getIsbn());
     }
 
     @Override
@@ -43,12 +43,12 @@ public class Adapter extends RecyclerView.Adapter {
     }
 
     public class ViewHolderClass extends RecyclerView.ViewHolder{
-        TextView nim,nama,jurusan,angkatan;
+        TextView judul,isbn,jurusan,angkatan;
 
         public ViewHolderClass(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            nim=itemView.findViewById(R.id.tv_buku);
-            nama=itemView.findViewById(R.id.tv_penulis);
+            isbn=itemView.findViewById(R.id.tv_isbn);
+            judul=itemView.findViewById(R.id.tv_judul);
 
             //Dilakukan agar item pada list dapat berpindah ke activity lain
             itemView.setOnClickListener(new View.OnClickListener() {
