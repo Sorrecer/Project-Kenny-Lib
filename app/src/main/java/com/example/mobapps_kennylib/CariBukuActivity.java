@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +28,6 @@ public class CariBukuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println(this);
         super.onCreate(savedInstanceState);
         act = this;
         setContentView(R.layout.activity_cari_buku);
@@ -44,6 +44,13 @@ public class CariBukuActivity extends AppCompatActivity {
                     recyclerView = findViewById(R.id.recyclerView);
                     recyclerAdapter = new RecyclerAdapter(bukusList);
                     System.out.println(recyclerAdapter);
+                    recyclerAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            int idbuku = bukusList.get(position).getIdbuku();
+                            startActivity(new Intent(CariBukuActivity.this, DetailBukuActivity.class).putExtra("id", idbuku));
+                        }
+                    });
                     recyclerView.setLayoutManager(new LinearLayoutManager(act));
                     recyclerView.setAdapter(recyclerAdapter);
                 } catch (JSONException e) {
