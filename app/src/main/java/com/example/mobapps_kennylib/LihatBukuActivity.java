@@ -29,7 +29,7 @@ public class LihatBukuActivity extends AppCompatActivity {
         //INI BLOCK CODE TERKAIT DATABASE
 
 
-        btnBack = findViewById(R.id.btn_back);
+        btnBack = (ImageButton) findViewById(R.id.btn_back);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

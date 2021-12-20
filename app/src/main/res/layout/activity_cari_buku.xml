@@ -45,7 +45,7 @@
             android:layout_height="33dp"
             android:layout_margin="5dp"
             android:background="@drawable/searchbox"
-            android:drawableLeft="@drawable/ic_cari_buku"
+            android:drawableLeft="@drawable/searchbox"
             android:ems="10"
             android:gravity="center"
             android:hint="Ketik nama buku... ">
