@@ -15,7 +15,6 @@ public class LihatBukuActivity extends AppCompatActivity {
 
     List<Buku> fetchData;
     RecyclerView recyclerView2;
-    ImageButton btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +26,8 @@ public class LihatBukuActivity extends AppCompatActivity {
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        fetchData = new ArrayList<>();
 //
-//        //INI BLOCK CODE TERKAIT DATABASE
+//
 
 
-        btnBack = (ImageButton) findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }
