@@ -6,9 +6,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +21,40 @@ public class CariBukuActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerAdapter recyclerAdapter;
 
-    List<String> moviesList;
+    ArrayList<Buku> bukusList;
+    ArrayList<Buku> bukus;
+    Context act;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println(this);
         super.onCreate(savedInstanceState);
+        act = this;
         setContentView(R.layout.activity_cari_buku);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        WebService webService = new WebService(){
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                BukuWebService bukuWebService = new BukuWebService();
+                try {
+                    bukusList = bukuWebService.getBuku(s);
+                    recyclerView = findViewById(R.id.recyclerView);
+                    recyclerAdapter = new RecyclerAdapter(bukusList);
+                    System.out.println(recyclerAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(act));
+                    recyclerView.setAdapter(recyclerAdapter);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        webService.execute("buku/", "GET");
+
+        /*
         moviesList = new ArrayList<>();
         moviesList.add("Iron Man");
         moviesList.add("The Incredible Hulk");
@@ -53,11 +82,13 @@ public class CariBukuActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerAdapter = new RecyclerAdapter(moviesList);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(recyclerAdapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
+        */
+
     }
 
     @Override

@@ -22,13 +22,13 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> implements Filterable {
 
     private static final String TAG = "RecyclerAdapter";
-    List<String> moviesList;
-    List<String> moviesListAll;
+    List<Buku> bukusList;
+    List<Buku> bukusListAll;
 
-    public RecyclerAdapter(List<String> moviesList) {
-        this.moviesList = moviesList;
-        moviesListAll = new ArrayList<>();
-        moviesListAll.addAll(moviesList);
+    public RecyclerAdapter(List<Buku> bukusList) {
+        this.bukusList = bukusList;
+        bukusListAll = new ArrayList<>();
+        bukusListAll.addAll(bukusList);
     }
 
     @NonNull
@@ -42,13 +42,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.judul.setText(String.valueOf(position));
-        holder.isbn.setText(moviesList.get(position));
+        holder.judul.setText(bukusList.get(position).getJudul());
+        holder.isbn.setText(bukusList.get(position).getIsbn());
     }
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return bukusList.size();
     }
 
     @Override
@@ -62,14 +62,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
 
-            List<String> filteredList = new ArrayList<>();
+            List<Buku> filteredList = new ArrayList<>();
 
             if (charSequence == null || charSequence.length() == 0) {
-                filteredList.addAll(moviesListAll);
+                filteredList.addAll(bukusListAll);
             } else {
-                for (String movie: moviesListAll) {
-                    if (movie.toLowerCase().contains(charSequence.toString().toLowerCase())) {
-                        filteredList.add(movie);
+                for (Buku buku: bukusListAll) {
+                    if (buku.getIsbn().contains(charSequence.toString().toLowerCase()) ||
+                            buku.getJudul().contains(charSequence.toString().toLowerCase()) ||
+                            buku.getPengarang().contains(charSequence.toString().toLowerCase())) {
+                        filteredList.add(buku);
                     }
                 }
             }
@@ -82,8 +84,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         //Automatic on UI thread
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            moviesList.clear();
-            moviesList.addAll((Collection<? extends String>) filterResults.values);
+            bukusList.clear();
+            bukusList.addAll((Collection<? extends Buku>) filterResults.values);
             notifyDataSetChanged();
         }
     };
@@ -105,7 +107,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), moviesList.get(getAdapterPosition()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), bukusList.get(getAdapterPosition()).getJudul(), Toast.LENGTH_SHORT).show();
         }
     }
 }
