@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.cari_buku:
                 startActivity(new Intent(MainActivity.this, CariBukuActivity.class));
                 break;
+            case R.id.ganti_session:
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                break;
         }
     }
 }
