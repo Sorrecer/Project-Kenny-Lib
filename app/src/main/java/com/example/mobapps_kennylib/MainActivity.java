@@ -1,17 +1,20 @@
 package com.example.mobapps_kennylib;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView user;
     String nim;
+    CardView listBukubtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
         user = findViewById(R.id.tv_user);
         SharedPreferences sharedPref = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        listBukubtn = findViewById(R.id.lihat_buku);
         nim = sharedPref.getString("nim", "0");
-        user.setText(nim);
+        if(nim.equals("0")){
+            listBukubtn.setEnabled(false);
+            user.setText("Tidak Ada");
+        }
+        else {
+            listBukubtn.setEnabled(true);
+            user.setText(nim);
+        }
     }
 
     @Override
@@ -31,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
         nim = sharedPref.getString("nim", "0");
         System.out.println(nim);
         user.setText(nim);
+        if(nim.equals("0")){
+            listBukubtn.setEnabled(false);
+            user.setText("Tidak Ada");
+        }
+        else {
+            listBukubtn.setEnabled(true);
+            user.setText(nim);
+        }
     }
 
     public void pindah(View view){
