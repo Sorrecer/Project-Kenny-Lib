@@ -21,10 +21,10 @@
         android:fontFamily="sans-serif-condensed"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview2222"
+        android:id="@+id/recyclerview2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="20dp">
 
