@@ -167,7 +167,7 @@
                 </TableRow>
             </TableLayout>
 
-        </LinearLayout>
+        </TableRow>
 
     </RelativeLayout>
 
