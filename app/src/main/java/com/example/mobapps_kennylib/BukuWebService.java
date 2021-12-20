@@ -7,7 +7,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class BukuWebService {
-    private final String serviceuri = "http://10.0.2.2/mini-project/service/"; //Sesuaikan
     private final String ID = "idbuku";
     private final String ISBN = "isbn";
     private final String JUDUL = "judul";
