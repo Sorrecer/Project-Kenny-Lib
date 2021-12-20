@@ -3,6 +3,7 @@ package com.example.mobapps_kennylib;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -17,8 +18,19 @@ class WebService extends AsyncTask<String, Void, String> {
             URL url = new URL(serviceuri+uri[0]);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
-            con.setRequestMethod("GET");
+            con.setRequestMethod(uri[1]);
             con.setRequestProperty("Accept", "application/json");
+            if(uri[1].equals("GET")){
+
+            }
+            else if (uri[1].equals("POST")){
+                con.setRequestProperty("content-type", "application/json");
+                con.setDoOutput(true);
+                DataOutputStream out = new DataOutputStream(con.getOutputStream());
+                out.writeBytes(uri[2]);
+                out.flush();
+                out.close();
+            }
 
             //int status = con.getResponseCode();
             System.out.println(url);

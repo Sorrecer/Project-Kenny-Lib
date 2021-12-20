@@ -48,7 +48,7 @@ public class CariBukuActivity extends AppCompatActivity {
 
             }
         };
-        webService.execute("buku/");
+        webService.execute("buku/", "GET");
 
 
         btnBack = findViewById(R.id.btn_back);
