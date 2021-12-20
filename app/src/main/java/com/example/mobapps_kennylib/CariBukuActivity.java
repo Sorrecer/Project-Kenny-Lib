@@ -1,62 +1,84 @@
 package com.example.mobapps_kennylib;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONException;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CariBukuActivity extends AppCompatActivity {
 
-    List<Buku> fetchData;
-
     RecyclerView recyclerView;
-    ImageButton btnBack;
+    RecyclerAdapter recyclerAdapter;
 
-    ArrayList<Buku> bukus;
+    List<String> moviesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cari_buku);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        fetchData = new ArrayList<>();
+        moviesList = new ArrayList<>();
+        moviesList.add("Iron Man");
+        moviesList.add("The Incredible Hulk");
+        moviesList.add("Iron Man 2");
+        moviesList.add("Thor");
+        moviesList.add("Captain America: The First Avenger");
+        moviesList.add("The Avengers");
+        moviesList.add("Iron Man 3");
+        moviesList.add("Thor: The Dark World");
+        moviesList.add("Captain America: The Winter Soldier");
+        moviesList.add("Guardians of the Galaxy");
+        moviesList.add("Avengers: Age of Ultron");
+        moviesList.add("Ant-Man");
+        moviesList.add("Captain America: Civil War");
+        moviesList.add("Doctor Strange");
+        moviesList.add("Guardians of the Galaxy Vol. 2");
+        moviesList.add("Spider-Man: Homecoming");
+        moviesList.add("Thor: Ragnarok");
+        moviesList.add("Black Panther");
+        moviesList.add("Avengers: Infinity War");
+        moviesList.add("Ant-Man and the Wasp");
+        moviesList.add("Captain Marvel");
+        moviesList.add("Avengers: Endgame");
+        moviesList.add("Spider-Man: Far From Home");
 
-        //INI BLOCK CODE TERKAIT DATABASE
-        WebService webService = new WebService(){
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerAdapter = new RecyclerAdapter(moviesList);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(recyclerAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                BukuWebService bukuWebService = new BukuWebService();
-                try {
-                    System.out.println(s);
-                    fetchData = bukuWebService.getBuku(s);
-                    Adapter adapter = new Adapter(fetchData);
-                    recyclerView.setAdapter(adapter);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
-        };
-        webService.execute("buku/", "GET");
 
-
-        btnBack = findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public boolean onQueryTextChange(String newText) {
+                recyclerAdapter.getFilter().filter(newText);
+                return false;
             }
         });
+
+        return super.onCreateOptionsMenu(menu);
     }
 }

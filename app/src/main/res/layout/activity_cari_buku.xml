@@ -9,65 +9,14 @@
     android:padding="8dp"
     android:background="@drawable/bg">
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_back"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cari Buku"
-        android:textSize="25sp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/editMobileNo"
-            android:layout_width="305dp"
-            android:layout_height="30dp"
-            android:background="@drawable/searchbox"
-            android:hint="  Ketik nama buku... ">
-        </EditText>
-
-        <ImageButton
-            android:id="@+id/btn_cari_buku"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_toEndOf="@+id/editMobileNo"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_cari_buku"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"/>
-
-    </RelativeLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp">
-
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
     </androidx.recyclerview.widget.RecyclerView>
-
 
 </LinearLayout>
