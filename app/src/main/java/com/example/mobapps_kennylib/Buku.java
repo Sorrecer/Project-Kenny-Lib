@@ -6,6 +6,7 @@ public class Buku {
     private String judul;
     private String kategori;
     private String pengarang;
+    private String kotaTerbit;
     private int stok;
 
     public Buku(int idbuku){
@@ -51,6 +52,10 @@ public class Buku {
         this.stok = stok;
     }
 
+    public void setKotaTerbit(String kotaTerbit) {
+        this.kotaTerbit = kotaTerbit;
+    }
+
     public int getIdbuku() {
         return idbuku;
     }
@@ -73,5 +78,9 @@ public class Buku {
 
     public String getPengarang() {
         return pengarang;
+    }
+
+    public String getKotaTerbit() {
+        return kotaTerbit;
     }
 }

@@ -13,6 +13,7 @@ public class BukuWebService {
     private final String KATEGORI = "kategori";
     private final String PENGARANG = "pengarang";
     private final String STOK = "stok";
+    private final String KOTATERBIT = "kota_terbit";
 
     public ArrayList<Buku> getBuku(String response) throws JSONException {
         JSONArray array = new JSONArray(response);
@@ -29,5 +30,18 @@ public class BukuWebService {
             bukus.add(buku);
         }
         return bukus;
+    }
+
+    public Buku getOneBuku(String response) throws JSONException {
+        JSONObject object = new JSONObject(response);
+
+        Buku buku = new Buku(object.getInt(ID));
+        buku.setIsbn(object.getString(ISBN));
+        buku.setJudul(object.getString(JUDUL));
+        buku.setPengarang(object.getString(PENGARANG));
+        buku.setKategori(object.getString(KATEGORI));
+        buku.setStok(object.getInt(STOK));
+        buku.setKotaTerbit(object.getString(KOTATERBIT));
+        return buku;
     }
 }

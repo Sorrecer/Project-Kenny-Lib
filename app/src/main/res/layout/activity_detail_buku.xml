@@ -43,125 +43,125 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp">
 
-            <TableRow
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="100dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="80dp"
-                    android:text="Judul : "
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_judul"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="80dp"
-                    android:text="judul"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="ISBN : "
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_isbn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="isbn"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-            </TableRow>
-
                 <TableRow
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="100dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity=""
-                    android:layout_marginTop="10dp"
-                    android:text="Nama Penulis : "
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_penulis"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity=""
-                    android:layout_marginTop="10dp"
-                    android:text="penulis"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity=""
-                    android:layout_marginTop="10dp"
-                    android:text="Kategori : "
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_kategori"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity=""
-                    android:layout_marginTop="10dp"
-                    android:text="kategori"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-                </TableRow>
-                <TableRow
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity=""
-                        android:layout_marginTop="10dp"
-                        android:text="Tamggal Terbit : "
+                        android:layout_marginTop="80dp"
+                        android:text="Judul : "
                         android:textColor="@android:color/black"
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_tanggal_terbit"
+                        android:id="@+id/tv_judul"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="80dp"
+                        android:text="judul"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="ISBN : "
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_isbn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="isbn"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity=""
                         android:layout_marginTop="10dp"
-                        android:text="tanggal terbit"
+                        android:text="Nama Penulis : "
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_penulis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity=""
+                        android:layout_marginTop="10dp"
+                        android:text="penulis"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity=""
+                        android:layout_marginTop="10dp"
+                        android:text="Kategori : "
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_kategori"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity=""
+                        android:layout_marginTop="10dp"
+                        android:text="kategori"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity=""
+                        android:layout_marginTop="10dp"
+                        android:text="Kota terbit :"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_kota_terbit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity=""
+                        android:layout_marginTop="10dp"
+                        android:text="a"
                         android:textColor="@android:color/black"
                         android:textSize="14sp" />
                 </TableRow>

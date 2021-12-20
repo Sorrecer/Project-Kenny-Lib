@@ -1,5 +1,6 @@
 package com.example.mobapps_kennylib;
 
+import android.content.Intent;
 import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private static final String TAG = "RecyclerAdapter";
     List<Buku> bukusList;
     List<Buku> bukusListAll;
+    private OnItemClickListener mListener;
 
     public RecyclerAdapter(List<Buku> bukusList) {
         this.bukusList = bukusList;
@@ -36,7 +38,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.item_buku, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view, mListener);
         return viewHolder;
     }
 
@@ -94,20 +96,38 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
 //        ImageView imageView;
         TextView judul, isbn;
+        OnItemClickListener listener;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, final  OnItemClickListener listener) {
             super(itemView);
 
             judul = itemView.findViewById(R.id.tv_judul);
             isbn = itemView.findViewById(R.id.tv_isbn);
+            this.listener = listener;
 
             itemView.setOnClickListener(this);
-
         }
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), bukusList.get(getAdapterPosition()).getJudul(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), ""+bukusList.get(getAdapterPosition()).getIdbuku(), Toast.LENGTH_SHORT).show();
+
+            if (listener != null){
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION){
+                    listener.onItemClick(position);
+                }
+            }
+
         }
     }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
+
 }
