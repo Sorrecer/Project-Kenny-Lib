@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity=""
                     android:layout_marginTop="20dp"
-                    android:text="Username"
+                    android:text="NIM"
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -61,7 +61,7 @@
                     android:id="@+id/username"
                     android:layout_width="300dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/searchbox" />
+                    android:background="@drawable/searchbox"/>
             </LinearLayout>
 
             <LinearLayout
