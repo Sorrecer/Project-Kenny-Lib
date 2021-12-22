@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> implements Filterable {
 
@@ -70,9 +71,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 filteredList.addAll(bukusListAll);
             } else {
                 for (Buku buku: bukusListAll) {
-                    if (buku.getIsbn().contains(charSequence.toString().toLowerCase()) ||
-                            buku.getJudul().contains(charSequence.toString().toLowerCase()) ||
-                            buku.getPengarang().contains(charSequence.toString().toLowerCase())) {
+                    if (buku.getIsbn().toLowerCase().contains(charSequence.toString().toLowerCase()) ||
+                            buku.getJudul().toLowerCase().contains(charSequence.toString().toLowerCase()) ||
+                            buku.getPengarang().toLowerCase().contains(charSequence.toString().toLowerCase())) {
                         filteredList.add(buku);
                     }
                 }
@@ -110,8 +111,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), ""+bukusList.get(getAdapterPosition()).getIdbuku(), Toast.LENGTH_SHORT).show();
-
             if (listener != null){
                 int position = getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION){
